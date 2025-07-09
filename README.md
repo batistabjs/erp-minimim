@@ -13,8 +13,7 @@ Tecnologias:
 - ProtoBuf
 
 ### Para execução do projeto:
-Instalar o Java23, Maven e o Docker
-Na raiz do projeto, executar no terminal o comando:
+Instalar o Java23, Maven e o Docker. Na raiz do projeto, executar no terminal o comando:
 ```
 mvn clean install
 ```
@@ -24,20 +23,18 @@ Depois, para subir o projeto execute:
 sudo docker compose --profile h2 up
 ```
 - Caso queira Para testar com o Postgres (mais demorado porque baixa uma img docker Postgres)
-- Caso queira testar com H2 Database
 ```
 sudo docker compose --profile pg up
 ```
 ### Para testes dos endpoints:
-O app fora pensando para simular um BFF (Back-end for Front-end) com uma camada de segurança
+O app fora pensado para simular um BFF (Back-end for Front-end) com uma camada de segurança
 
 Caso queira conferir os payloads a serem enviados aos endpoint, consulte pela doc:
 ```
 http://localhost:8083/swagger-ui.html
 ```
 
-Para agilizar, voce pode baixar o app Insomnia e, na raiz do projeto, importar o arquivo insomnia_endpoints.yaml
-Ou pode via curl pelo terminal executar requisiçoes conforme a seguir.
+Para agilizar, voce pode baixar o app Insomnia e, na raiz do projeto, importar o arquivo insomnia_endpoints.yaml. Ou pode via curl pelo terminal executar requisiçoes conforme a seguir.
 
 Para gerar o token de usuario:
 ```
@@ -76,7 +73,12 @@ curl http://localhost:8083/pessoa/list -H "Authorization: Bearer <TOKEN>"
 
 Para listar pessoas UTILIZANDO PROTOBUF (e comparar desempenho):
 ```
-curl http://localhost:8083/pessoa/listbyproto -H "Authorization: Bearer <TOKEN>"
+curl http://localhost:8083/pessoa/listbyProto -H "Authorization: Bearer <TOKEN>"
+```
+
+Para listar paginada:
+```
+curl http://localhost:8083/pessoa/listbyPage -H "Authorization: Bearer <TOKEN>"
 ```
 
 Para apagar registros:
