@@ -1,0 +1,2 @@
+insert into pessoa (id,tipo,cnpj,cpf,nome,celular,telefone,email,endereco_id)
+values (default,'J','15898000000143','12345678900','João da Silva','47989180000','11988884444','joao@email.com',1);

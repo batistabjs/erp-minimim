@@ -1,0 +1,49 @@
+services:
+  erp-minimim-h2-app:
+    profiles: ["h2"]
+    build: .
+    ports:
+      - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev_h2
+      - JWT_EXPIRATION=3600000
+    networks:
+      - erp-min-net  
+
+  erp-minimim-pg-app:
+    profiles: ["pg"]
+    build: .
+    ports:
+      - "8083:8083"
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev_pg
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/erp-minimim
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - JWT_EXPIRATION=3600000
+    networks:
+      - erp-min-net       
+
+  postgres:
+    profiles: ["pg"]
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_DB: erp-minimim
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - erp-min-net 
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
+networks:
+  erp-min-net:
+  

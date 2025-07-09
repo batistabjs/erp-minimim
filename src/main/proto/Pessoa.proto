@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.br.erp.pessoa.protoproto;
+
+option java_package = "com.br.erp.pessoa.protoproto";
+option java_outer_classname = "PessoaProto";
+
+message Pessoa {
+  uint64 id = 1;
+  string tipo = 2;
+  string cnpj = 3;
+  string cpf = 4;
+  string nome = 5;
+  string celular = 6;
+  string telefone = 7;
+  string email = 8;
+  Endereco endereco = 9;
+}
+
+message Endereco {
+  uint64 id = 1;
+  string cep = 2;
+  string logradouro = 3;
+  uint64 numero = 4;
+  string complemento = 5;
+  uint64 idCidade = 6;
+  string cidade = 7;
+  string bairro = 8;
+  uint64 idEstado = 9;
+  string estado = 10;
+}
+
+message PessoaList {
+  repeated Pessoa pessoa = 1;
+}

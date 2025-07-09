@@ -1,0 +1,2 @@
+ALTER TABLE PESSOA ADD COLUMN endereco_id BIGINT;
+ALTER TABLE PESSOA ADD CONSTRAINT fk_pessoa_endereco FOREIGN KEY (endereco_id) REFERENCES endereco(id);
