@@ -1,0 +1,239 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1751803839975
+  modified: 1751803839975
+  description: ""
+collection:
+  - url: "{{ _.url }}/pessoa"
+    name: criaPessoa
+    meta:
+      id: req_3eea4235fb494649b0e871683a38b196
+      created: 1751804076903
+      modified: 1752015865482
+      isPrivate: false
+      description: ""
+      sortKey: -1751804076903
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"tipo": "J",
+        	"cnpj": "12345678900",
+        	"cpf": "12345678900",
+        	"nome": "João da Silva",
+        	"celular": "11988884444",
+        	"telefone": "1133543322",
+        	"email": "joao@email.com",
+        	"endereco": {
+        		"cep": "79833080",
+        		"logradouro": "Rua A",
+        		"numero": 100,
+        		"complemento": "Ap 201",
+        		"idCidade": 5003702,
+        		"cidade": "Dourados",
+        		"bairro": "Vila Oliveira",
+        		"idEstado": 35,
+        		"estado": "Mato"
+        	}
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/auth/login"
+    name: geraTokenUsuario
+    meta:
+      id: req_a1313e369e414156965f69dd01c54056
+      created: 1751814250223
+      modified: 1751925374885
+      isPrivate: false
+      description: ""
+      sortKey: -1751814250223
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"username": "brunobatista",
+        	"password": "brunobatista"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: none
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/pessoa/list"
+    name: ListaPessoas
+    meta:
+      id: req_72cb041db3514ac3846cecb020de362c
+      created: 1751820356741
+      modified: 1751993952096
+      isPrivate: false
+      description: ""
+      sortKey: -1751804076853
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/pessoa/listbyProto"
+    name: ListaPessoasProto
+    meta:
+      id: req_e8da47cd9c7149c8828b1db5b6be686b
+      created: 1752012096513
+      modified: 1752026047635
+      isPrivate: false
+      description: ""
+      sortKey: -1751804076803
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/pessoa/1"
+    name: removePessoa
+    meta:
+      id: req_918ea39db87f40b691a1b68bf6fd05ab
+      created: 1752017918122
+      modified: 1752018126989
+      isPrivate: false
+      description: ""
+      sortKey: -1751804076878
+    method: DELETE
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"tipo": "J",
+        	"cnpj": "12345678900",
+        	"cpf": "12345678900",
+        	"nome": "João da Silva",
+        	"celular": "11988884444",
+        	"telefone": "1133543322",
+        	"email": "joao@email.com",
+        	"endereco": {
+        		"cep": "79833080",
+        		"logradouro": "Rua A",
+        		"numero": 100,
+        		"complemento": "Ap 201",
+        		"idCidade": 5003702,
+        		"cidade": "Dourados",
+        		"bairro": "Vila Oliveira",
+        		"idEstado": 35,
+        		"estado": "Mato"
+        	}
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url }}/pessoa/listbyPage"
+    name: ListaPessoasPage
+    meta:
+      id: req_8b1db58027e644ed88738e39ffc9329e
+      created: 1752024384741
+      modified: 1752026022494
+      isPrivate: false
+      description: ""
+      sortKey: -1751804076828
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+      disabled: false
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1751803874731
+    modified: 1752025985967
+  cookies:
+    - key: JSESSIONID
+      value: D3F12920459F7657B6D3A54719608004
+      domain: localhost
+      path: /
+      httpOnly: true
+      hostOnly: true
+      creation: 2025-07-06T12:14:57.464Z
+      lastAccessed: 2025-07-09T01:53:05.965Z
+      id: 53ffa38d-6092-4b67-bb57-595ca10523e6
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1751803874369
+    modified: 1752025946831
+    isPrivate: false
+  data:
+    url: localhost:8083
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJicnVub2JhdGlzdGEiLCJpYXQiOjE3NTIwMjU5MjcsImV4cCI6MTc1MjAyOTUyN30.ONwrBNIG08tLrYojRleKzVkrWnHwKxCZ9kM3UGDt-Yc

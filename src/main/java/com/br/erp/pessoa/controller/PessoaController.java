@@ -2,7 +2,9 @@ package com.br.erp.pessoa.controller;
 
 import java.util.List;
 
-import org.springframework.http.HttpStatus;
+import org.springdoc.core.annotations.ParameterObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +32,12 @@ public class PessoaController {
     @GetMapping("/list")
     public List<PessoaListResponse> listAll() { return pessoaService.listAll(); }
 
-    @GetMapping(value = "/listbyproto", produces = "application/x-protobuf")
+    @GetMapping("/listbyPage")
+    public Page<PessoaListResponse> listar(@ParameterObject Pageable pageable) {
+        return pessoaService.listarPage(pageable);
+    }
+
+    @GetMapping(value = "/listbyProto", produces = "application/x-protobuf")
     public PessoaProto.PessoaList listarProto() { return pessoaService.listProto(); }
 
     @PostMapping

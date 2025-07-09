@@ -5,6 +5,8 @@ import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.br.erp.api.ViaCep;
@@ -105,6 +107,32 @@ public class PessoaService {
                                 )
                         )
                 ).toList();
+    }
+
+    public Page<PessoaListResponse> listarPage(Pageable pageable) {
+        return pessoaRepository.findAll(pageable).map(p ->
+            new PessoaListResponse(
+                p.getId(),
+                p.getTipo(),
+                p.getCnpj(),
+                p.getCpf(),
+                p.getNome(),
+                p.getCelular(),
+                p.getTelefone(),
+                p.getEmail(),
+                new EnderecoDto(
+                    p.getEndereco().getCep(),
+                    p.getEndereco().getLogradouro(),
+                    p.getEndereco().getNumero(),
+                    p.getEndereco().getComplemento(),
+                    p.getEndereco().getIdCidade(),
+                    p.getEndereco().getCidade(),
+                    p.getEndereco().getBairro(),
+                    p.getEndereco().getIdEstado(),
+                    p.getEndereco().getEstado()
+                )
+            )
+        );
     }
 
     public PessoaProto.PessoaList listProto() {
