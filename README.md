@@ -40,7 +40,7 @@ Para gerar o token de usuario:
 ```
 curl -X POST http://localhost:8083/auth/login -H "Content-Type: application/json" -d '{"username":"brunobatista","password":"brunobatista"}'
 ```
-Pegue o token gerado e, no header das proximas requisiçoes, substitua a palavra <<TOKEN>> pelo codigo token que vc copiou.
+Pegue o token gerado e, no header das proximas requisiçoes, substitua a palavra < TOKEN > pelo codigo token que vc copiou.
 
 Para gerar novos registros de pessoas:
 ```
